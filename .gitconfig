@@ -1,0 +1,21 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+
+[alias]
+	st = status
+	df = diff
+	ci = commit
+	cim = commit -m
+	co = checkout
+	sw = switch
+	swc = switch -C
+	br = branch
+[user]
+	name = Takumikimura1899
+	email = kimura141899@gmail.com
+[color]
+	ui = true
