@@ -1,0 +1,32 @@
+{
+	"servers": {
+		"figma-developer-mcp": {
+			"command": "bunx",
+			"args": [
+				"-y",
+				"figma-developer-mcp",
+				"--stdio"
+			],
+			"env": {
+				"FIGMA_API_KEY": "${FIGMA_API_KEY}"
+			},
+			"type": "stdio"
+		},
+		"console-ninja": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"-c",
+				"node ~/.console-ninja/mcp/"
+			],
+			"type": "stdio"
+		},
+		"chrome-devtools": {
+			"command": "npx",
+			"args": [
+				"chrome-devtools-mcp@latest"
+			]
+		}
+	},
+	"inputs": []
+}
