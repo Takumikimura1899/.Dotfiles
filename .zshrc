@@ -34,6 +34,9 @@ alias ys="yarn start"
 alias yd="yarn dev"
 alias cdd="cd ~/dev"
 
+# Dotfiles management aliases
+source "$HOME/.dotfiles/aliases/dotfiles.sh"
+
 [[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
 
 # Amazon Q post block. Keep at the bottom of this file.
