@@ -18,10 +18,10 @@ export PATH="$HOME/development/flutter/bin:$PATH"
 eval "$(starship init zsh)"
 
 # Useful aliases
-alias ls='exa --time-style=long-iso -g'
+alias ls='eza --time-style=long-iso -g'
 alias ll='ls --git --time-style=long-iso -gl'
 alias la='ls --git --time-style=long-iso -agl'
-alias l1='exa -1'
+alias l1='eza -1'
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh"
