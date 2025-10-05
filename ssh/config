@@ -1,0 +1,34 @@
+# SSH Configuration
+# Managed by dotfiles
+
+# Default settings for all hosts
+Host *
+    # Security settings
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    TCPKeepAlive no
+    
+    # Connection settings
+    Compression yes
+    HashKnownHosts yes
+    
+    # Authentication settings
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentitiesOnly yes
+
+# Example host configuration (uncomment and modify as needed)
+# Host myserver
+#     HostName example.com
+#     User myuser
+#     Port 22
+#     IdentityFile ~/.ssh/id_rsa
+#     ForwardAgent no
+
+# GitHub configuration (common setup)
+# Host github.com
+#     HostName github.com
+#     User git
+#     IdentityFile ~/.ssh/id_rsa
+#     AddKeysToAgent yes
+#     UseKeychain yes
