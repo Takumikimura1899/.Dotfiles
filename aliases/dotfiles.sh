@@ -12,15 +12,15 @@ alias dots-check="dots-status"
 alias dots-sync="dots-update"
 
 # 便利な組み合わせコマンド
-alias dots-quick() {
+dots-quick() {
     echo "🔄 Quick dotfiles sync workflow"
-    dots-status
+    $HOME/.dotfiles/scripts/dotfiles-sync.sh status
     echo ""
     read -p "🤔 変更をdotfilesに反映しますか？ (y/n): " -n 1 -r
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        dots-update --interactive
-        dots-commit
+        $HOME/.dotfiles/scripts/dotfiles-sync.sh update --interactive
+        $HOME/.dotfiles/scripts/dotfiles-sync.sh commit
     fi
 }
 
