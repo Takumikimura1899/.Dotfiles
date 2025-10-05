@@ -52,6 +52,15 @@ alias cdd="cd ~/dev"        # Jump to development directory
 # Note: ls/ll/la aliases are defined in .zprofile (using exa)
 
 # -----------------------------------------------------------------------------
+# STARSHIP PROMPT
+# -----------------------------------------------------------------------------
+# Set Starship config file location
+export STARSHIP_CONFIG="$HOME/.dotfiles/config/starship.toml"
+
+# Initialize Starship prompt
+eval "$(starship init zsh)"
+
+# -----------------------------------------------------------------------------
 # DOTFILES MANAGEMENT
 # -----------------------------------------------------------------------------
 # Custom dotfiles management commands

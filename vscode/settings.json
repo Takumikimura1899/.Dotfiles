@@ -91,6 +91,8 @@
     "FIG_NEW_SESSION": "1",
     "Q_NEW_SESSION": "1"
   },
+  "terminal.integrated.fontFamily": "CodeNewRoman Nerd Font",
+  "terminal.integrated.fontSize": 14,
   "editor.fontSize": 14,
   "editor.accessibilitySupport": "off",
   "window.zoomLevel": 3,
