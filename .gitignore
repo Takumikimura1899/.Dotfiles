@@ -1,0 +1,25 @@
+# 秘密情報
+*.local
+.env
+.env.*
+secrets/
+private/
+
+# SSH秘密鍵
+ssh/id_*
+ssh/*.pem
+!ssh/config
+
+# エディタ・OS
+.DS_Store
+*.swp
+*~
+.idea/
+*.sublime-*
+
+# MCP実設定（テンプレートは残す）
+vscode/mcp.json
+
+# バックアップファイル
+*.backup
+*.backup.*
