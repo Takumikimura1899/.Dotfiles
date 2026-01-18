@@ -1,5 +1,4 @@
 tap "hashicorp/tap"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "libsql/sqld"
 tap "shopify/shopify"
@@ -15,7 +14,7 @@ brew "cairo"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # Modern replacement for 'ls'
-brew "exa"
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # GitHub command-line tool
@@ -32,8 +31,6 @@ brew "harfbuzz"
 brew "node"
 # JavaScript implementation of a Sass compiler
 brew "node-sass"
-# Development kit for the Java programming language
-brew "openjdk@17"
 # General-purpose scripting language
 brew "php"
 # Object-relational database system
@@ -46,8 +43,6 @@ brew "starship"
 brew "tree"
 # Internet file retriever
 brew "wget"
-# Tracks most-used directories to make cd smarter
-brew "z"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh
