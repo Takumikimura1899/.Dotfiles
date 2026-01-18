@@ -7,10 +7,6 @@
 # -----------------------------------------------------------------------------
 # EXTERNAL INTEGRATIONS (Pre-setup)
 # -----------------------------------------------------------------------------
-# Amazon Q pre block - Keep at the top
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-
-# -----------------------------------------------------------------------------
 # ZSH COMPLETIONS & ENHANCEMENTS
 # -----------------------------------------------------------------------------
 # Homebrew-managed Zsh enhancements (PATH already set in .zprofile)
@@ -32,10 +28,10 @@ zstyle ":completion:*:commands" rehash 1
 # -----------------------------------------------------------------------------
 # NAVIGATION & PRODUCTIVITY TOOLS  
 # -----------------------------------------------------------------------------
-# z - Smart directory jumping based on frequency
-if [[ -f "`brew --prefix`/etc/profile.d/z.sh" ]]; then
-  . `brew --prefix`/etc/profile.d/z.sh
-fi
+# zoxide
+eval "$(zoxide init zsh)"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # -----------------------------------------------------------------------------
 # SHELL ALIASES & SHORTCUTS
@@ -67,14 +63,11 @@ eval "$(starship init zsh)"
 source "$HOME/.dotfiles/aliases/dotfiles.sh"
 
 # -----------------------------------------------------------------------------
-# LEGACY/DEPRECATED INTEGRATIONS
-# -----------------------------------------------------------------------------
-# Fig integration (keeping for backward compatibility)
-# TODO: Remove if no longer needed
-[[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
-
-# -----------------------------------------------------------------------------
 # EXTERNAL INTEGRATIONS (Post-setup)
 # -----------------------------------------------------------------------------
-# Amazon Q post block - Keep at the bottom
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Added by Antigravity
+export PATH="/Users/t-kimura/.antigravity/antigravity/bin:$PATH"

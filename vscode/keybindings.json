@@ -26,5 +26,45 @@
     "key": "cmd+l cmd+c",
     "command": "-extension.liveServer.goOffline",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+'",
+    "command": "expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal"
+  },
+  {
+    "key": "cmd+l",
+    "command": "claude-vscode.terminal.open.keyboard",
+    "when": "config.claudeCode.useTerminal"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-claude-vscode.terminal.open.keyboard",
+    "when": "config.claudeCode.useTerminal"
   }
 ]
