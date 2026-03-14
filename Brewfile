@@ -27,8 +27,8 @@ brew "git-filter-repo"
 brew "git-lfs"
 # OpenType text shaping engine
 brew "harfbuzz"
-# Platform built on V8 to build network applications
-brew "node"
+# The front-end to your dev env
+brew "mise"
 # JavaScript implementation of a Sass compiler
 brew "node-sass"
 # General-purpose scripting language

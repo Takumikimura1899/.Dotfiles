@@ -99,6 +99,15 @@ check_status() {
         echo -e "  ${GREEN}✓${NC} starship.toml 同期済み"
     fi
     
+    # mise設定の差分
+    echo -e "${YELLOW}📦 mise設定:${NC}"
+    if ! diff -q "$HOME/.config/mise/config.toml" "$DOTFILES_DIR/config/mise/config.toml" >/dev/null 2>&1; then
+        echo "  ⚠️  mise config.toml に差分あり"
+        has_changes=true
+    else
+        echo -e "  ${GREEN}✓${NC} mise config.toml 同期済み"
+    fi
+
     # Homebrewパッケージの差分
     echo -e "${YELLOW}🍺 Homebrew パッケージ:${NC}"
     cd "$DOTFILES_DIR"
@@ -131,6 +140,7 @@ show_detailed_diff() {
         "VS Code:settings.json:$HOME/Library/Application Support/Code/User/settings.json:$DOTFILES_DIR/vscode/settings.json"
         "SSH:config:$HOME/.ssh/config:$DOTFILES_DIR/ssh/config"
         "Starship:starship.toml:$HOME/.config/starship.toml:$DOTFILES_DIR/config/starship.toml"
+        "mise:config.toml:$HOME/.config/mise/config.toml:$DOTFILES_DIR/config/mise/config.toml"
     )
     
     for file_info in "${files[@]}"; do
@@ -201,6 +211,22 @@ update_dotfiles() {
         fi
     fi
     
+    # mise設定の更新
+    if ! diff -q "$HOME/.config/mise/config.toml" "$DOTFILES_DIR/config/mise/config.toml" >/dev/null 2>&1; then
+        if [ "$interactive" = true ]; then
+            echo -e "${YELLOW}📄 mise config.toml に変更があります${NC}"
+            read -p "dotfilesに反映しますか？ (y/n): " -n 1 -r
+            echo ""
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                cp "$HOME/.config/mise/config.toml" "$DOTFILES_DIR/config/mise/config.toml"
+                updated_files+=("config/mise/config.toml")
+            fi
+        else
+            cp "$HOME/.config/mise/config.toml" "$DOTFILES_DIR/config/mise/config.toml"
+            updated_files+=("config/mise/config.toml")
+        fi
+    fi
+
     # Brewfileの更新
     echo -e "${YELLOW}🍺 Homebrewパッケージリスト更新確認${NC}"
     if [ "$interactive" = true ]; then

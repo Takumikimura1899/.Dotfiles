@@ -1,0 +1,6 @@
+[tools]
+node = "24"
+yarn = "1"
+
+[settings]
+legacy_version_file = true
