@@ -34,7 +34,10 @@ cd ~/.dotfiles
 ├── aliases/
 │   └── dotfiles.sh            # Dotfiles管理用エイリアス
 ├── config/
-│   └── starship.toml          # Starship prompt configuration (色分け済み)
+│   ├── starship.toml          # Starship prompt configuration (色分け済み)
+│   ├── ghostty/config         # Ghostty ターミナル設定
+│   ├── herdr/config.toml      # Herdr 設定 (UI のみ。ログ・セッションは対象外)
+│   └── mise/config.toml       # mise (ランタイムバージョン管理)
 ├── vscode/
 │   ├── settings.json          # VS Code settings
 │   ├── keybindings.json       # VS Code key bindings

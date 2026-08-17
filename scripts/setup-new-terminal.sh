@@ -182,15 +182,24 @@ create_symlinks() {
         fi
     done
     
-    # .config設定
-    if [[ -f "$DOTFILES_DIR/config/starship.toml" ]]; then
-        mkdir -p "$HOME/.config"
-        if [[ -f "$HOME/.config/starship.toml" ]] && [[ ! -L "$HOME/.config/starship.toml" ]]; then
-            mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.backup.$(date +%Y%m%d_%H%M%S)"
+    # .config設定（dotfiles内のパス = リンク先のパス）
+    local config_files=(
+        "starship.toml"
+        "ghostty/config"
+        "herdr/config.toml"
+    )
+
+    for file in "${config_files[@]}"; do
+        if [[ -f "$DOTFILES_DIR/config/$file" ]]; then
+            mkdir -p "$(dirname "$HOME/.config/$file")"
+            # 既存の実ファイルはバックアップ
+            if [[ -f "$HOME/.config/$file" ]] && [[ ! -L "$HOME/.config/$file" ]]; then
+                mv "$HOME/.config/$file" "$HOME/.config/${file}.backup.$(date +%Y%m%d_%H%M%S)"
+            fi
+            ln -sf "$DOTFILES_DIR/config/$file" "$HOME/.config/$file"
+            echo "✓ $file"
         fi
-        ln -sf "$DOTFILES_DIR/config/starship.toml" "$HOME/.config/starship.toml"
-        echo "✓ starship.toml"
-    fi
+    done
     
     print_success "シンボリックリンク作成完了"
     log "Symlinks created successfully"
